@@ -1,0 +1,15 @@
+<div class="mt-4"></div>
+<div class="card">
+    <div class="card-body">
+        <h4>
+            {{firstName}} {{lastName}}
+        </h4>
+
+        <div *ngIf="isRegular" class="badge bg-success">
+            Regular
+        </div>
+        <div *ngIf="!isRegular" class="badge bg-danger">
+            Probation
+        </div>
+    </div>
+</div>

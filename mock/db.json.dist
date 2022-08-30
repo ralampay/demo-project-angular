@@ -1,0 +1,32 @@
+{
+    "employees": [
+        {
+            "id": 1,
+            "firstName": "Raphael",
+            "lastName": "Alampay",
+            "isRegular": false
+        },
+        {
+            "id": 2,
+            "firstName": "John",
+            "lastName": "Wick",
+            "isRegular": true
+        },
+        {
+            "id": 3,
+            "firstName": "Keanu",
+            "lastName": "Reeves",
+            "isRegular": true
+        }
+    ],
+    "departments": [
+        {
+            "id": 1,
+            "name": "IT"
+        },
+        {
+            "id": 2,
+            "name": "Accounting"
+        }
+    ]
+}
