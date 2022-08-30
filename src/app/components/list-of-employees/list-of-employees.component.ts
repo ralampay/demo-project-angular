@@ -10,7 +10,7 @@ import {
   styleUrls: ['./list-of-employees.component.scss']
 })
 export class ListOfEmployeesComponent implements OnInit {
-  isOpen: boolean = true;
+  isOpen: boolean = false;
   @Input() listOfEmployees: any[] = [
     {
       id: 1,

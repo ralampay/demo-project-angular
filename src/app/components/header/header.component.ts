@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isFormOpen: boolean = true;
 
   constructor() { 
     console.log("HeaderComponent generated...");
