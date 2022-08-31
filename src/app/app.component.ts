@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Employee } from './interfaces/employee';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { Component, Input } from '@angular/core';
 export class AppComponent {
   title: string = 'Employee Directory';
   message: string = 'Hello world!';
-  @Input() listOfEmployees: any[] = [
+  @Input() listOfEmployees: Employee[] = [
     {
       id: 1,
       firstName: "Raphael",

@@ -5,6 +5,7 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
+import { Employee } from '../../interfaces/employee';
 
 @Component({
   selector: 'app-list-of-employees',
@@ -14,7 +15,7 @@ import {
 export class ListOfEmployeesComponent implements OnInit {
   isOpen: boolean = false;
   @Input() message: string = "";
-  @Input() listOfEmployees: any[];
+  @Input() listOfEmployees: Employee[];
   @Output() deleteEvent: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }

@@ -5,6 +5,7 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
+import { Employee } from '../../interfaces/employee';
 
 @Component({
   selector: 'app-employee',
@@ -12,10 +13,7 @@ import {
   styleUrls: ['./employee.component.scss']
 })
 export class EmployeeComponent implements OnInit {
-  @Input() id: number;
-  @Input() firstName: string;
-  @Input() lastName: string;
-  @Input() isRegular: boolean;
+  @Input() employee: Employee;
   @Output() deleteEvent: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
@@ -24,6 +22,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   handleDelete(): void {
-    this.deleteEvent.emit(this.id);
+    this.deleteEvent.emit(this.employee.id);
   }
 }

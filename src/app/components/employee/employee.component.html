@@ -2,13 +2,13 @@
 <div class="card">
     <div class="card-body">
         <h4>
-            {{firstName}} {{lastName}}
+            {{employee.firstName}} {{employee.lastName}}
         </h4>
 
-        <div *ngIf="isRegular" class="badge bg-success">
+        <div *ngIf="employee.isRegular" class="badge bg-success">
             Regular
         </div>
-        <div *ngIf="!isRegular" class="badge bg-danger">
+        <div *ngIf="!employee.isRegular" class="badge bg-danger">
             Probation
         </div>
         <hr/>
