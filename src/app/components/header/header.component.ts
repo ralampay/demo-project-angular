@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { 
+  Component, 
+  OnInit,
+  Output,
+  EventEmitter
+} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   isFormOpen: boolean = true;
+  @Output() sampleEvent: EventEmitter<string> = new EventEmitter<string>()
 
   constructor() { 
     console.log("HeaderComponent generated...");
@@ -16,4 +22,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleSampleEvent(payload: string): void {
+    console.log(`handleSampleEvent(${payload})`);
+    this.isFormOpen = !this.isFormOpen;
+    this.sampleEvent.emit(payload);
+  }
 }

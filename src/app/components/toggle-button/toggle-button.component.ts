@@ -1,7 +1,9 @@
 import { 
   Component, 
   OnInit,
-  Input
+  Input,
+  Output,
+  EventEmitter
 } from '@angular/core';
 
 @Component({
@@ -13,6 +15,7 @@ export class ToggleButtonComponent implements OnInit {
   @Input() textOpen: string = "Open";
   @Input() textClose: string = "Close";
   @Input() isOpen: boolean = false;
+  @Output() sampleEvent: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
@@ -21,6 +24,10 @@ export class ToggleButtonComponent implements OnInit {
 
   toggle(): void {
     this.isOpen = !this.isOpen;
+
+    let message = `Value for isOpen: ${this.isOpen}`;
+
+    this.sampleEvent.emit(message);
   }
 
   getText(): string{

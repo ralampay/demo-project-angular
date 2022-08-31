@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'Employee Directory';
+  message: string = 'Hello world!';
+
+  handleSampleEvent(payload: string): void {
+    console.log(`handleSampleEvent(${payload}) in app.component`);
+    this.message = payload;
+  }
 }

@@ -1,9 +1,13 @@
-<app-header></app-header>
+<app-header
+  (sampleEvent)="handleSampleEvent($event)"
+></app-header>
 <div class="container">
   <h1>
     {{title}}
   </h1>
-  <app-list-of-employees>
+  <app-list-of-employees
+    [message]="message"
+  >
   </app-list-of-employees>
 </div>
 <app-footer></app-footer>

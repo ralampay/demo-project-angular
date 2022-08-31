@@ -11,6 +11,7 @@ import {
 })
 export class ListOfEmployeesComponent implements OnInit {
   isOpen: boolean = false;
+  @Input() message: string = "";
   @Input() listOfEmployees: any[] = [
     {
       id: 1,
