@@ -1,8 +1,10 @@
 <app-employee
     *ngFor="let emp of listOfEmployees"
+    [id]="emp.id"
     [firstName]="emp.firstName"
     [lastName]="emp.lastName"
     [isRegular]="emp.isRegular"
+    (deleteEvent)="handleDelete($event)"
 ></app-employee>
 
 <h1>

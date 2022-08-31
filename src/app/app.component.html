@@ -7,6 +7,8 @@
   </h1>
   <app-list-of-employees
     [message]="message"
+    [listOfEmployees]="listOfEmployees"
+    (deleteEvent)="handleDelete($event)"
   >
   </app-list-of-employees>
 </div>

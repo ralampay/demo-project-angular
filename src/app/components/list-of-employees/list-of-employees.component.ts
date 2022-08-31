@@ -1,7 +1,9 @@
 import { 
   Component, 
   OnInit,
-  Input
+  Input,
+  Output,
+  EventEmitter
 } from '@angular/core';
 
 @Component({
@@ -12,30 +14,15 @@ import {
 export class ListOfEmployeesComponent implements OnInit {
   isOpen: boolean = false;
   @Input() message: string = "";
-  @Input() listOfEmployees: any[] = [
-    {
-      id: 1,
-      firstName: "Raphael",
-      lastName: "Alampay",
-      isRegular: false
-    },
-    {
-      id: 2,
-      firstName: "John",
-      lastName: "Wick",
-      isRegular: true
-    },
-    {
-      id: 3,
-      firstName: "Keanu",
-      lastName: "Reeves",
-      isRegular: true
-    }
-  ];
+  @Input() listOfEmployees: any[];
+  @Output() deleteEvent: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  handleDelete(id: number): void {
+    this.deleteEvent.emit(id);
+  }
 }
