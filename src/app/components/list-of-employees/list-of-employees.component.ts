@@ -17,6 +17,7 @@ export class ListOfEmployeesComponent implements OnInit {
   @Input() message: string = "";
   @Input() listOfEmployees: Employee[];
   @Output() deleteEvent: EventEmitter<number> = new EventEmitter<number>();
+  @Output() editEvent: EventEmitter<Employee> = new EventEmitter<Employee>();
 
   constructor() { }
 
@@ -25,5 +26,9 @@ export class ListOfEmployeesComponent implements OnInit {
 
   handleDelete(id: number): void {
     this.deleteEvent.emit(id);
+  }
+
+  handleEdit(employee: Employee) {
+    this.editEvent.emit(employee);
   }
 }

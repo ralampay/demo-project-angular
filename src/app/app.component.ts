@@ -9,6 +9,14 @@ import { Employee } from './interfaces/employee';
 export class AppComponent {
   title: string = 'Employee Directory';
   message: string = 'Hello world!';
+
+  employee: Employee = {
+    id: -1,
+    firstName: "",
+    lastName: "",
+    isRegular: false
+  }
+
   @Input() listOfEmployees: Employee[] = [
     {
       id: 1,
@@ -56,8 +64,31 @@ export class AppComponent {
   }
 
   handleEmployeeSaved(employee: Employee) {
-    employee.id = 5;
     console.log(employee);
-    this.listOfEmployees.push(employee);
+
+    let updated = false;
+    let maxId = -1;
+
+    for(let i = 0; i < this.listOfEmployees.length; i++) {
+      let tempId = this.listOfEmployees[i].id;
+
+      if(tempId && tempId > maxId) {
+        maxId = tempId;
+      }
+
+      if(tempId && tempId == employee.id) {
+        this.listOfEmployees[i] = employee;
+        updated = true;
+      }
+    }
+
+    if(!updated) {
+      employee.id = maxId + 1;
+      this.listOfEmployees.push(employee);
+    }
+  }
+
+  handleEdit(employee: Employee) {
+      this.employee = employee;
   }
 }

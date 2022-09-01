@@ -12,6 +12,7 @@
         <div class="card-body">
             <app-employee-form
                 (employeeSaved)="handleEmployeeSaved($event)"
+                [employee]="employee"
             ></app-employee-form>
         </div>
     </div>

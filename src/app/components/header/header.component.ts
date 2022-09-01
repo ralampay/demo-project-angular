@@ -2,7 +2,8 @@ import {
   Component, 
   OnInit,
   Output,
-  EventEmitter
+  EventEmitter,
+  Input
 } from '@angular/core';
 import { Employee } from '../../interfaces/employee';
 
@@ -15,6 +16,13 @@ export class HeaderComponent implements OnInit {
   isFormOpen: boolean = true;
   @Output() sampleEvent: EventEmitter<string> = new EventEmitter<string>()
   @Output() employeeSaved: EventEmitter<Employee> = new EventEmitter<Employee>();
+
+  @Input() employee: Employee = {
+    id: -1,
+    firstName: "",
+    lastName: "",
+    isRegular: false
+  }
 
   constructor() { 
     console.log("HeaderComponent generated...");

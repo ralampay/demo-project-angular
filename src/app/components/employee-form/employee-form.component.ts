@@ -14,6 +14,7 @@ import { Employee } from '../../interfaces/employee';
 })
 export class EmployeeFormComponent implements OnInit {
   @Input() employee: Employee = {
+    id: -1,
     firstName: "",
     lastName: "",
     isRegular: false
@@ -36,6 +37,7 @@ export class EmployeeFormComponent implements OnInit {
 
     this.employeeSaved.emit(o);
 
+    this.employee.id = -1;
     this.employee.firstName = "";
     this.employee.lastName = "";
     this.employee.isRegular = false;

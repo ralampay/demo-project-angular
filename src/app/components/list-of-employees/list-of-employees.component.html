@@ -2,6 +2,7 @@
     *ngFor="let emp of listOfEmployees"
     [employee]="emp"
     (deleteEvent)="handleDelete($event)"
+    (editEvent)="handleEdit($event)"
 ></app-employee>
 
 <h1>

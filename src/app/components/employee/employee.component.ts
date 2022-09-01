@@ -15,6 +15,7 @@ import { Employee } from '../../interfaces/employee';
 export class EmployeeComponent implements OnInit {
   @Input() employee: Employee;
   @Output() deleteEvent: EventEmitter<number> = new EventEmitter<number>();
+  @Output() editEvent: EventEmitter<Employee> = new EventEmitter<Employee>();
 
   constructor() { }
 
@@ -23,5 +24,9 @@ export class EmployeeComponent implements OnInit {
 
   handleDelete(): void {
     this.deleteEvent.emit(this.employee.id);
+  }
+
+  handleEdit(): void {
+    this.editEvent.emit(this.employee);
   }
 }
