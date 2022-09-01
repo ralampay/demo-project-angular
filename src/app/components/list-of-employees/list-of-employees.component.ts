@@ -18,6 +18,7 @@ export class ListOfEmployeesComponent implements OnInit {
   @Input() listOfEmployees: Employee[];
   @Output() deleteEvent: EventEmitter<number> = new EventEmitter<number>();
   @Output() editEvent: EventEmitter<Employee> = new EventEmitter<Employee>();
+  @Output() refreshEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
@@ -30,5 +31,9 @@ export class ListOfEmployeesComponent implements OnInit {
 
   handleEdit(employee: Employee) {
     this.editEvent.emit(employee);
+  }
+
+  handleRefresh() {
+      this.refreshEvent.emit();
   }
 }

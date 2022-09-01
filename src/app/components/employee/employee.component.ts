@@ -17,6 +17,7 @@ export class EmployeeComponent implements OnInit {
   @Input() employee: Employee;
   @Output() deleteEvent: EventEmitter<number> = new EventEmitter<number>();
   @Output() editEvent: EventEmitter<Employee> = new EventEmitter<Employee>();
+  @Output() refreshEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -26,6 +27,7 @@ export class EmployeeComponent implements OnInit {
   handleDelete(): void {
     this.employeeService.deleteEmployee(this.employee).subscribe((emp) => {
       this.deleteEvent.emit(this.employee.id);
+      // this.refreshEvent.emit();
     })
   }
 

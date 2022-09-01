@@ -84,6 +84,12 @@ export class AppComponent implements OnInit {
   }
 
   handleEdit(employee: Employee) {
-      this.employee = employee;
+    this.employee = employee;
+  }
+
+  handleRefresh() {
+    this.employeeService.getEmployees().subscribe((employees) => {
+      this.listOfEmployees = employees;
+    })
   }
 }
