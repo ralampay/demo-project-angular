@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
   message: string = 'Hello world!';
 
   employee: Employee = {
-    id: -1,
     firstName: "",
     lastName: "",
     isRegular: false
@@ -69,14 +68,9 @@ export class AppComponent implements OnInit {
     console.log(employee);
 
     let updated = false;
-    let maxId = -1;
 
     for(let i = 0; i < this.listOfEmployees.length; i++) {
       let tempId = this.listOfEmployees[i].id;
-
-      if(tempId && tempId > maxId) {
-        maxId = tempId;
-      }
 
       if(tempId && tempId == employee.id) {
         this.listOfEmployees[i] = employee;
@@ -85,7 +79,6 @@ export class AppComponent implements OnInit {
     }
 
     if(!updated) {
-      employee.id = maxId + 1;
       this.listOfEmployees.push(employee);
     }
   }

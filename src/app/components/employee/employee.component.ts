@@ -5,6 +5,7 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
+import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../interfaces/employee';
 
 @Component({
@@ -17,13 +18,15 @@ export class EmployeeComponent implements OnInit {
   @Output() deleteEvent: EventEmitter<number> = new EventEmitter<number>();
   @Output() editEvent: EventEmitter<Employee> = new EventEmitter<Employee>();
 
-  constructor() { }
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
   }
 
   handleDelete(): void {
-    this.deleteEvent.emit(this.employee.id);
+    this.employeeService.deleteEmployee(this.employee).subscribe((emp) => {
+      this.deleteEvent.emit(this.employee.id);
+    })
   }
 
   handleEdit(): void {

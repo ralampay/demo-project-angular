@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
   @Output() employeeSaved: EventEmitter<Employee> = new EventEmitter<Employee>();
 
   @Input() employee: Employee = {
-    id: -1,
     firstName: "",
     lastName: "",
     isRegular: false

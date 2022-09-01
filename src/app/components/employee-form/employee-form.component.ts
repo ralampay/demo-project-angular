@@ -6,6 +6,7 @@ import {
   EventEmitter
 } from '@angular/core';
 import { Employee } from '../../interfaces/employee';
+import { EmployeeService } from '../../services/employee.service';
 
 @Component({
   selector: 'app-employee-form',
@@ -14,7 +15,6 @@ import { Employee } from '../../interfaces/employee';
 })
 export class EmployeeFormComponent implements OnInit {
   @Input() employee: Employee = {
-    id: -1,
     firstName: "",
     lastName: "",
     isRegular: false
@@ -24,7 +24,7 @@ export class EmployeeFormComponent implements OnInit {
 
   firstName: string;
 
-  constructor() { }
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
   }
@@ -35,12 +35,14 @@ export class EmployeeFormComponent implements OnInit {
 
     let o = {...this.employee};
 
-    this.employeeSaved.emit(o);
+    this.employeeService.saveEmployee(o).subscribe((emp) => {
+      this.employeeSaved.emit(emp);
 
-    this.employee.id = -1;
-    this.employee.firstName = "";
-    this.employee.lastName = "";
-    this.employee.isRegular = false;
+      this.employee.id = undefined;
+      this.employee.firstName = "";
+      this.employee.lastName = "";
+      this.employee.isRegular = false;
+    })
   }
 
 }
