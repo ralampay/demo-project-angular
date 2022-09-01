@@ -12,6 +12,9 @@
             Probation
         </div>
         <hr/>
+        <a [routerLink]="['/employees', employee.id]" class="btn btn-primary">
+            Show
+        </a>
         <button (click)="handleDelete()" class="btn btn-danger">
             Delete
         </button>

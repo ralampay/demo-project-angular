@@ -1,0 +1,17 @@
+<app-header
+  (sampleEvent)="handleSampleEvent($event)"
+  (employeeSaved)="handleEmployeeSaved($event)"
+  [employee]="employee"
+></app-header>
+<app-list-of-employees
+    [listOfEmployees]="listOfEmployees"
+    (deleteEvent)="handleDelete($event)"
+    (editEvent)="handleEdit($event)"
+    (refreshEvent)="handleRefresh()"
+>
+</app-list-of-employees>
+<a
+    routerLink="/about"
+>
+    Go to About
+</a>
