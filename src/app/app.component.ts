@@ -1,12 +1,17 @@
-import { Component, Input } from '@angular/core';
+import { 
+  Component, 
+  Input,
+  OnInit
+} from '@angular/core';
 import { Employee } from './interfaces/employee';
+import { EmployeeService } from './services/employee.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title: string = 'Employee Directory';
   message: string = 'Hello world!';
 
@@ -17,26 +22,23 @@ export class AppComponent {
     isRegular: false
   }
 
-  @Input() listOfEmployees: Employee[] = [
-    {
-      id: 1,
-      firstName: "Raphael",
-      lastName: "Alampay",
-      isRegular: false
-    },
-    {
-      id: 2,
-      firstName: "John",
-      lastName: "Wick",
-      isRegular: true
-    },
-    {
-      id: 3,
-      firstName: "Keanu",
-      lastName: "Reeves",
-      isRegular: true
-    }
-  ];
+  @Input() listOfEmployees: Employee[] = [];
+
+  constructor(private employeeService: EmployeeService) {
+
+  }
+
+  ngOnInit(): void {
+    console.log("ngOnInit()");
+    // Call our backend server
+    // On response, load listOfEmployees
+
+    //this.listOfEmployees = this.employeeService.getEmployees();
+
+    this.employeeService.getEmployees().subscribe((employees) => {
+      this.listOfEmployees = employees;
+    })
+  }
 
   handleDelete(id: number): void {
     /*
