@@ -54,4 +54,10 @@ export class AppComponent {
     console.log(`handleSampleEvent(${payload}) in app.component`);
     this.message = payload;
   }
+
+  handleEmployeeSaved(employee: Employee) {
+    employee.id = 5;
+    console.log(employee);
+    this.listOfEmployees.push(employee);
+  }
 }
